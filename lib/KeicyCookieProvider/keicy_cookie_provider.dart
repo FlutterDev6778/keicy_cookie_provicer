@@ -8,8 +8,12 @@ class KeicyCookieProvider extends ChangeNotifier {
   static KeicyCookieProvider of(BuildContext context, {bool listen = false}) => Provider.of<KeicyCookieProvider>(context, listen: listen);
 
   static final bool _isCheckCookie = true;
-  static final int _minutes = 1;
+  static int _minutes;
   static SharedPreferences prefs;
+
+  KeicyCookieProvider({@required int minutes}) {
+    _minutes = minutes;
+  }
 
   KeicyCookieState _keicyCookieState = KeicyCookieState.init();
   KeicyCookieState get keicyCookieState => _keicyCookieState;
